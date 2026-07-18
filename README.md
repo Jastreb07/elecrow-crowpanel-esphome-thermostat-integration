@@ -30,17 +30,7 @@ tuned to work well with [Better Thermostat](https://better-thermostat.org/)
 The knob's on-device screens, controlled by this integration's entity
 selection:
 
-| Loading | Home | Thermostat |
-|---|---|---|
-| ![Loading screen](images/screen_loading.png) | ![Home screen](images/screen_home.png) | ![Thermostat screen](images/screen_thermostat.png) |
-
-| Light brightness | Light temperature | Light color |
-|---|---|---|
-| ![Light brightness screen](images/screen_light_brightness.png) | ![Light temperature screen](images/screen_light_temperature.png) | ![Light color screen](images/screen_light_color.png) |
-
-| Cover | Entity navigation |
-|---|---|
-| ![Cover screen](images/screen_cover.png) | ![Navigation screen](images/screen_navigation.png) |
+![All screens: loading, home, thermostat, light brightness/temperature/color, cover, and entity navigation](images/screens_demo.png)
 
 ## Hardware
 
@@ -98,7 +88,9 @@ if it isn't yet).
      the device for you and restart it automatically, instead of you
      copying that entity ID over by hand (see step 4 if you skip this).
 
-   ![Home Assistant entity picker used by the Smart Thermostat Knob integration](images/ha-integration-helper.png)
+
+
+  ![Home Assistant entity picker used by the Smart Thermostat Knob integration](images/ha-integration-helper.png)
 
 3. Submit the form. This creates the config entry and its sensor
    (`sensor.<name>_config`, with your climate/light/cover selection encoded
