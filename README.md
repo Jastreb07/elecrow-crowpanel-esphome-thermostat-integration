@@ -1,5 +1,7 @@
 # Smart Thermostat Knob — Home Assistant Integration
 
+<img src="logo.png" alt="Smart Thermostat Knob logo" width="96" height="96" />
+
 [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Jastreb07&repository=elecrow-crowpanel-esphome-thermostat-integration&category=integration)
 
 This is the companion Home Assistant integration for the
