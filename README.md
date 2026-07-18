@@ -80,7 +80,11 @@ the [firmware repo](https://github.com/Jastreb07/elecrow-crowpanel-esphome-therm
 if it isn't yet).
 
 1. Go to **Settings > Devices & services > Add integration**, search for
-   **Smart Thermostat Knob**, and select it.
+   **Smart Thermostat Knob**, and select it. Because this integration is a
+   Home Assistant *helper*, you can also create it from
+   **Settings > Devices & services > Helpers > + Create Helper**, search
+   for **Smart Thermostat Knob** there instead — both paths open the same
+   form.
 2. Fill in the form:
    - **Smart Knob name** — a unique, recognizable name (for example
      "Living Room Knob"). Home Assistant derives this entry's sensor
@@ -116,10 +120,14 @@ display names come from the Home Assistant friendly names of the entities
 you picked — rename the entity and reload this integration to change what
 shows on screen.
 
-Repeat **Add integration** for every additional Smart Knob; each gets its
-own independent config entry and sensor. To rename a knob or change its
-entities later, open that specific integration entry and select
-**Reconfigure** — other Smart Knob entries are not affected.
+Repeat **Add integration** (or **Create Helper**) for every additional
+Smart Knob; each gets its own independent config entry and sensor. To
+rename a knob or change its entities later, either open that specific
+entry under **Settings > Devices & services > Smart Thermostat Knob** and
+select **Reconfigure**, or edit it directly from
+**Settings > Devices & services > Helpers** (click the entry, then the
+gear/settings icon) — both open the same editable form. Other Smart Knob
+entries are not affected.
 
 ## Related
 
