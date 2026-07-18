@@ -1,0 +1,29 @@
+name: release-please
+
+# Opens/updates a "release PR" from Conventional Commit messages on every
+# push to main. Merging that PR bumps manifest.json's version, updates
+# CHANGELOG.md, tags the commit, and publishes a GitHub Release - which is
+# what HACS actually checks to tell users an update is available.
+#
+# Commit messages drive the version bump:
+#   fix: ...        -> patch (0.3.1 -> 0.3.2)
+#   feat: ...        -> minor (0.3.1 -> 0.4.0)
+#   feat!: ... / BREAKING CHANGE: -> major (0.3.1 -> 1.0.0)
+# Anything else (docs:, chore:, etc.) does not trigger a release.
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
