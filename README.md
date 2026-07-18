@@ -15,17 +15,15 @@ If you don't have the firmware installed on a device yet, start there —
 this integration has nothing to configure without it:
 **[Smart Thermostat Knob firmware repository](https://github.com/Jastreb07/elecrow-crowpanel-esphome-thermostat)**.
 
+The firmware (and by extension the climate entities you select here) is
+tuned to work well with [Better Thermostat](https://better-thermostat.org/)
+— that's what I personally run mine with.
+
 ## Video Walkthrough
 
 | 1.28" (240x240) | 2.1" (480x480) |
 |---|---|
 | [![240x240 demo](https://img.youtube.com/vi/F0mFrxt4jac/0.jpg)](https://www.youtube.com/watch?v=F0mFrxt4jac) | [![480x480 demo](https://img.youtube.com/vi/REPLACE_WITH_480_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=REPLACE_WITH_480_VIDEO_ID) |
-
-GitHub strips `<iframe>` embeds from rendered READMEs, so a YouTube video
-can't play inline here — clicking a thumbnail opens it on YouTube instead.
-Once we have local `.mp4` exports of these recordings, we can switch to a
-native `<video>` tag pointing at a file committed to this repo, which
-GitHub *does* play inline without leaving the page.
 
 ## Screens
 
