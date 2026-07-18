@@ -58,7 +58,7 @@ selection:
    as category **Integration**.
 2. Search for **Smart Thermostat Knob** in HACS and install it.
 3. Restart Home Assistant.
-4. Continue with **Settings > Devices & services > Add integration** below.
+4. Continue with [Setting Up a Smart Knob](#setting-up-a-smart-knob) below.
 
 ## Manual installation
 
@@ -69,33 +69,57 @@ directory as:
 /homeassistant/custom_components/smart_thermostat_knob
 ```
 
-Restart Home Assistant. Then open **Settings > Devices & services > Add
-integration**, search for **Smart Thermostat Knob**, give the knob a
-recognizable name, and select its climate, light, and cover entities.
-Repeat **Add integration** for every additional Smart Knob.
+Restart Home Assistant, then continue with the setup steps below.
 
-![Home Assistant entity picker used by the Smart Thermostat Knob integration](images/ha-integration-helper.png)
+## Setting Up a Smart Knob
 
-Optionally select the knob's ESPHome text entity **Home Assistant Config
-Entity**. The integration writes its own configuration sensor entity ID to
-that text entity and automatically finds the restart button on the same
-ESPHome device. The ESP restarts once after initial mapping and after every
-later reconfiguration of this helper.
+Do this once per physical Smart Knob, after the integration itself is
+installed (HACS or manual) and Home Assistant has been restarted, and
+after that knob's firmware is already flashed and connected to Wi-Fi (see
+the [firmware repo](https://github.com/Jastreb07/elecrow-crowpanel-esphome-thermostat)
+if it isn't yet).
 
-To rename a knob or change its assigned entities later, open that specific
-integration entry and select **Reconfigure**. Other Smart Knob entries are
-not affected.
+1. Go to **Settings > Devices & services > Add integration**, search for
+   **Smart Thermostat Knob**, and select it.
+2. Fill in the form:
+   - **Smart Knob name** — a unique, recognizable name (for example
+     "Living Room Knob"). Home Assistant derives this entry's sensor
+     entity ID from it, e.g. `sensor.living_room_knob_config`.
+   - **Thermostats** — one or more `climate.*` entities. **Required**; the
+     form rejects submission without at least one.
+   - **Lights** — any `light.*` entities to add as pages. Optional.
+   - **Covers** — any `cover.*` entities (shutters, blinds, curtains) to
+     add as pages. Optional.
+   - **ESPHome config entity** — the knob's own ESPHome text entity named
+     **Home Assistant Config Entity**. Optional, but recommended: picking
+     it here lets the integration write the new sensor's entity ID into
+     the device for you and restart it automatically, instead of you
+     copying that entity ID over by hand (see step 4 if you skip this).
 
-At least one climate entity is required. Light and cover entities are
-optional. The screen order follows the selector order, and display names
-come from the Home Assistant friendly names. To change a displayed name,
-rename the entity and reload this integration.
+   ![Home Assistant entity picker used by the Smart Thermostat Knob integration](images/ha-integration-helper.png)
 
-Each entry creates its own sensor, with an entity ID derived from the
-chosen name, for example `sensor.living_room_knob_config`. If that ID is
-already used, Home Assistant adds a suffix. Set the corresponding ESPHome
-text entity **Home Assistant Config Entity** to that knob's actual sensor
-entity ID. The value is persisted by the ESP.
+3. Submit the form. This creates the config entry and its sensor
+   (`sensor.<name>_config`, with your climate/light/cover selection encoded
+   as its JSON attributes) — check under **Settings > Devices & services >
+   Smart Thermostat Knob** that it appears.
+4. **If you selected the ESPHome config entity in step 2**, the ESP
+   restarts on its own within a few seconds and picks up the new pages —
+   nothing else to do. **If you left it empty**, open the device's
+   **Home Assistant Config Entity** text entity yourself and set its value
+   to the sensor entity ID from step 3 (e.g. `sensor.living_room_knob_config`);
+   the ESP applies it immediately without a restart.
+5. Confirm on the physical device: the thermostat, light, and cover pages
+   you selected should now be reachable from the entity overview screen.
+
+The screen order follows the selector order from step 2, and on-device
+display names come from the Home Assistant friendly names of the entities
+you picked — rename the entity and reload this integration to change what
+shows on screen.
+
+Repeat **Add integration** for every additional Smart Knob; each gets its
+own independent config entry and sensor. To rename a knob or change its
+entities later, open that specific integration entry and select
+**Reconfigure** — other Smart Knob entries are not affected.
 
 ## Related
 
