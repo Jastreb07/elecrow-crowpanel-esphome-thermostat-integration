@@ -11,7 +11,7 @@ configuration helper only — it does not add new entities to Home Assistant
 and does not talk to the ESP device over the network. It creates one
 configuration sensor per physical Smart Knob and exposes the climate, light,
 and cover entities you pick for it, in the JSON attribute format the
-firmware reads.
+firmware reads
 
 If you don't have the firmware installed on a device yet, start there —
 this integration has nothing to configure without it:
